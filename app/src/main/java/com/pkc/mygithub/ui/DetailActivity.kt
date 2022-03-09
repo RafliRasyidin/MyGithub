@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.core.content.ContextCompat
 import com.pkc.mygithub.databinding.ActivityDetailBinding
 import com.pkc.mygithub.model.User
+import com.pkc.mygithub.utils.toShortNumber
 
 class DetailActivity : AppCompatActivity() {
 
@@ -47,8 +48,8 @@ class DetailActivity : AppCompatActivity() {
         binding.apply {
             imgUser.setImageDrawable(userAvatar)
             tvCompany.text = user?.company
-            tvFollowers.text = user?.follower.toString()
-            tvFollowing.text = user?.following.toString()
+            tvFollowers.text = user?.follower?.toShortNumber()
+            tvFollowing.text = user?.following?.toShortNumber()
             tvLocation.text = user?.location.toString()
             tvName.text = user?.name
             tvRepo.text = user?.repository.toString()
