@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.DetailActivity">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/img_user"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintDimensionRatio="1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent=".25"
+        tools:src="@color/colorSecondary" />
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/container1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/container2"
+        app:layout_constraintEnd_toEndOf="@+id/container2"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/container2"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed">
+
+        <TextView
+            android:id="@+id/tv_repo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/poppins_semibold"
+            android:gravity="center"
+            android:text="@string/_0"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tv_followers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/poppins_semibold"
+            android:gravity="center"
+            android:text="@string/_0"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tv_following"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/poppins_semibold"
+            android:gravity="center"
+            android:text="@string/_0"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/container2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="@+id/img_user"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@id/img_user"
+        app:layout_constraintTop_toBottomOf="@+id/container1">
+
+        <TextView
+            android:id="@+id/label_repo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/poppins"
+            android:gravity="center"
+            android:text="@string/repository"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/label_followers"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/poppins"
+            android:gravity="center"
+            android:text="@string/followers"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/label_following"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/poppins"
+            android:gravity="center"
+            android:text="@string/following"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:fontFamily="@font/poppins"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/img_user"
+        app:layout_constraintTop_toBottomOf="@id/img_user"
+        tools:text="Rafli Rasyidin" />
+
+    <ImageView
+        android:id="@+id/img_company"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/ic_company"
+        app:layout_constraintDimensionRatio="1"
+        app:layout_constraintStart_toStartOf="@id/img_user"
+        app:layout_constraintTop_toBottomOf="@id/tv_name"
+        app:layout_constraintWidth_percent=".06"
+        tools:ignore="ContentDescription" />
+
+    <TextView
+        android:id="@+id/tv_company"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:fontFamily="@font/poppins"
+        android:textSize="14sp"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="@id/img_company"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/img_company"
+        app:layout_constraintTop_toTopOf="@id/img_company"
+        tools:text="PT. Telkom Indonesia" />
+
+    <ImageView
+        android:id="@+id/img_location"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/ic_pin_location"
+        app:layout_constraintDimensionRatio="1"
+        app:layout_constraintStart_toStartOf="@id/img_user"
+        app:layout_constraintTop_toBottomOf="@id/img_company"
+        app:layout_constraintWidth_percent=".06"
+        tools:ignore="ContentDescription" />
+
+    <TextView
+        android:id="@+id/tv_location"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:fontFamily="@font/poppins"
+        android:textSize="14sp"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="@id/img_location"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/img_location"
+        app:layout_constraintTop_toTopOf="@id/img_location"
+        tools:text="Indonesia" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
