@@ -27,7 +27,7 @@ object JSONHelper {
     fun loadDataUser(context: Context): List<User> {
         val listData = ArrayList<User>()
 
-            val userObject = JSONObject(parsingFileToString(context, "githubuse.json").toString())
+            val userObject = JSONObject(parsingFileToString(context, "githubuser.json").toString())
             val users = userObject.getJSONArray("users")
             for (index in 0 until users.length()) {
                 val user = users.getJSONObject(index)
