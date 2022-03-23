@@ -2,11 +2,12 @@ package com.pkc.mygithub.ui.component
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.pkc.mygithub.model.User
+import com.bumptech.glide.Glide
+import com.pkc.mygithub.R
+import com.pkc.mygithub.data.model.User
 import com.pkc.mygithub.databinding.ItemUserBinding
 
 class UserAdapter : ListAdapter<User, UserAdapter.UserViewHolder>(DiffCallback) {
@@ -28,18 +29,14 @@ class UserAdapter : ListAdapter<User, UserAdapter.UserViewHolder>(DiffCallback) 
 
         with(binding) {
 
-            val userAvatar = ContextCompat.getDrawable(
-                context,
-                context.resources.getIdentifier(
-                    user.avatar,
-                    "drawable",
-                    context.packageName
-                ),
-            )
+            Glide.with(context)
+                .load(user.avatarUrl)
+                .placeholder(R.drawable.ic_user)
+                .error(R.drawable.ic_error_image)
+                .into(imgUser)
 
-            imgUser.setImageDrawable(userAvatar)
             tvUsername.text = user.username
-            tvCompany.text = user.company
+            tvType.text = user.type
 
             root.setOnClickListener {
                 onItemClick?.invoke(user)
