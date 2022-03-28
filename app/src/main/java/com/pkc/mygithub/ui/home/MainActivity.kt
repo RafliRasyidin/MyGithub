@@ -9,13 +9,11 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.pkc.mygithub.R
 import com.pkc.mygithub.databinding.ActivityMainBinding
 import com.pkc.mygithub.ui.component.UserAdapter
 import com.pkc.mygithub.ui.detail.DetailActivity
-import kotlinx.coroutines.delay
 
 class MainActivity : AppCompatActivity() {
 
@@ -51,20 +49,17 @@ class MainActivity : AppCompatActivity() {
         val searchView = menu?.findItem(R.id.action_search)?.actionView as SearchView
 
         searchView.setSearchableInfo(searchManager.getSearchableInfo(componentName))
-        searchView.queryHint = resources.getString(R.string.search)
+        searchView.queryHint = getString(R.string.search)
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-            override fun onQueryTextSubmit(query: String?): Boolean {
-                return false
+            override fun onQueryTextSubmit(query: String): Boolean {
+                if (query.isNotEmpty()) {
+                    viewModel.searchUsers(query)
+                }
+                return true
             }
 
             override fun onQueryTextChange(newText: String): Boolean {
-                lifecycleScope.launchWhenCreated {
-                    if (newText.isNotEmpty()) {
-                        delay(500)
-                        viewModel.searchUsers(newText)
-                    }
-                }
-                return true
+                return false
             }
         })
         return true
